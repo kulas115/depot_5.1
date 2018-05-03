@@ -10,7 +10,7 @@ RSpec.feature "LineItems", type: :feature do
 
     aggregate_failures do
       expect(page).to have_css("h2", text: "Your Pragmatic Cart")
-      expect(page).to have_css("li", text: "Programming Ruby 1.9")
+      expect(page).to have_css("li", text: "1 \u00D7 Programming Ruby 1.9")
     end
   end
 end
