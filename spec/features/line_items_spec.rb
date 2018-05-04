@@ -9,8 +9,19 @@ RSpec.feature "LineItems", type: :feature do
     }.to change(LineItem, :count).by(1)
 
     aggregate_failures do
-      expect(page).to have_css("h2", text: "Your Pragmatic Cart")
-      expect(page).to have_css("li", text: "1 \u00D7 Programming Ruby 1.9")
+      expect(page).to have_css("h2", text: "Your Cart")
+      expect(page).to have_css("td.quantity", text: "1")
+      expect(page).to have_css("td", text: "Programming Ruby 1.9")
     end
+  end
+
+  scenario "product quantity in cart gets correctly updated" do
+    product = FactoryBot.create(:product)
+    visit root_path
+    click_button 'Add to Cart'
+    visit root_path
+    click_button 'Add to Cart'
+    expect(page).to have_css("td.quantity", text: "2")
+    expect(page).to have_css("td", text: "Programming Ruby 1.9")
   end
 end
