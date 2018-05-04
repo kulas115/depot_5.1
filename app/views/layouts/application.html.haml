@@ -13,6 +13,9 @@
       %h1= @page_title
     %section.content
       %nav.side_nav
+        - if @cart
+          .carts#cart
+            = render @cart
         %ul
           %li
             %a{href: "/"} Home
