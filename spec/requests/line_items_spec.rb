@@ -9,13 +9,22 @@ RSpec.describe "LineItems", type: :request do
   end
 
   describe "POST /line_items" do
-    it "creates new LineItem" do
-      product = FactoryBot.create(:product)
-      # byebug
+    let(:product) { FactoryBot.create(:product) }
 
+    it "creates new LineItem" do
       expect{
         post "/line_items", params: { product_id: product.id }
       }.to change(LineItem, :count).by(1)
+    end
+
+    it "creates new LineItem via AJAX" do
+      product = FactoryBot.create(:product)
+      expect{
+        post "/line_items", params: { product_id: product.id }, xhr: true
+      }.to change(LineItem, :count).by(1)
+
+      expect(response).to have_http_status(200)
+      expect(response.body).to include("<tr class=\\'line-item-highlight\\'>")
     end
   end
 
