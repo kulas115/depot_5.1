@@ -13,4 +13,4 @@
           %p= sanitize(product.description)
           .price
           = product.price_in_dollar
-          = button_to 'Add to Cart', line_items_path(product_id: product)
+          = button_to 'Add to Cart', line_items_path(product_id: product), remote: true
