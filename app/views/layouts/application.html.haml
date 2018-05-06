@@ -15,7 +15,7 @@
       %nav.side_nav
         - if @cart
           .carts#cart
-            = render @cart
+            = render_if @cart && @cart.line_items.any?, @cart
         %ul
           %li
             %a{href: "/"} Home
