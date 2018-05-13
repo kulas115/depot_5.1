@@ -30,6 +30,7 @@ group :development, :test do
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   # gem 'parallel_tests'
+  gem 'rubocop', require: false
   gem 'shoulda-matchers',
     git: 'https://github.com/thoughtbot/shoulda-matchers.git',
     branch: 'rails-5'
