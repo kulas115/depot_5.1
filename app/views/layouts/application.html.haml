@@ -12,6 +12,10 @@
       I18n.locale        = "#{I18n.locale}"
   %body{class: "#{controller_name} #{action_name}"}
     %header.main
+      %aside
+        = form_tag root_path, class: 'locale' do
+          = select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()'
+          = submit_tag 'submit', id: 'submit_locale_change'
       = image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf'
       %h1= @page_title
     %section.content
