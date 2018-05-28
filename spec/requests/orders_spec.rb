@@ -31,7 +31,7 @@ RSpec.describe "Orders", type: :request do
         post orders_path, params: { order: { address: order.address, email: order.email, name: order.name, pay_type: order.pay_type } }
       }.to change(Order, :count).by(1)
 
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to root_path(locale: 'en')
     end
   end
 end

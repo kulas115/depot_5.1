@@ -22,7 +22,7 @@ RSpec.feature "Orders", type: :feature, js: true do
     expect(page).to have_selector('#order_routing_number')
 
     fill_in 'Routing #', with: "123456"
-    fill_in 'Account #', with: '987654'
+    fill_in 'order[account_number]', with: '987654'
 
     perform_enqueued_jobs do
       click_on 'Place Order'

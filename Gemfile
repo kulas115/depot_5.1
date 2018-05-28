@@ -19,6 +19,7 @@ gem 'haml'
 gem 'draper'
 gem 'webpacker', '~> 3.0'
 gem 'bcrypt'
+gem 'i18n-js'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

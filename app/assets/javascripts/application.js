@@ -13,3 +13,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= reqire i18n
+//= require i18n/translations
