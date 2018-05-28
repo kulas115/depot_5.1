@@ -18,13 +18,13 @@
             = render_if @cart && @cart.line_items.any?, @cart
         %ul
           %li
-            %a{href: "/"} Home
+            %a{href: "/"}= t('.home')
           %li
-            %a{href: "/questions"} Questions
+            %a{href: "/questions"}= t('.questions')
           %li
-            %a{href: "/news"} News
+            %a{href: "/news"}= t('.news')
           %li
-            %a{href: "/contact"} Contact
+            %a{href: "/contact"}= t('.contact')
 
         - if session[:user_id]
           %nav.logged_in_nav
